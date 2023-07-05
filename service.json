@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "matka-jatka-fb",
+  "private_key_id": "138b9c548bb34acf2516a899d4d25490040fafce",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDQnlu1JWIcZSib\nDSp8D0NaOB2ynP5gPpbmjVtNW+RtRaFKVdSNtZhIbFMrY+a8BexQUtwc6EFH37Rq\nAyq78wGzu5NJf6mjrUcGkWy6KQY4H7Pj6Gi+uh9bx90oGvAttDVJDwxdyjWcp+Hy\nXLa9nZa8Ze1IwgKjjgsSJkA1/jdAktBpRmvPBfqU+BrvuT0uHoii8YU6Ej6hZx0H\nHcUgKsg+Yf5cFR1cmXXpIcauzfQIlYxcEvVIJmp4hShmMlZZW+9VZxoi/0R+bt3L\nqIMbGyVPG4H9KV/qrypyYvimZjUBD5pH2QZH+n9gtinf9iUo1PpU2fU/v+fTSfsK\nOsZHD1MlAgMBAAECggEALssWbu9PrmbSUNUHLoSN6vKjVqj4NcZUOqqCTDvMZOY1\nY2MVJiQRYE1L6nOiEZKSiwHK9YDzA5gd85l6QGYlf5cXVmkYN+pqAAMmjCsfhf82\nbmx28jD1T7To2lIQhW/ic9y4PWFZ3SWa/K3nH2j1opSKQMOjq+P0f8GsrW+0HPtp\nr7DdgNp1/RAN6rsCtQOjLzeJZHop8ci4XKj6sNvoUFo4AjrTcelrMccPLj6LBgFB\n85T2K+iHiAc+qTXOqVikPyAQV6wN92BGhJmeCybyUJ4DiSBWBevznicSB1NdV6vn\ntVDmH5DeKOIMO6OEO2aMAt04Ea1cZPpoC/CU/EoAgQKBgQDnq2vT2ecxSRbUpfv1\ns/CkHBLF370lAma5eCsVxu64Pse4jqMgfN/9HU6MAturNlko7xEO1hSZGLPajFlA\nVtYlThzCFTrhMLhbfzFuz1ce2flJ2b4o1twGvoT3DBMRSdItHqX8W/cgU0MlJ+sr\nTjA3EWk7GJbkEAYd2ISDCd0yqQKBgQDmhzI0dAqJFAv+a5PyJLxGI+fcv8PRLP3Y\nAXII1FkXGWb/KNv7HpzAsvyo/Xz0hfQVCzlRoxAn4dL/r0cUxU3BQWGen7KYmnBl\n7o+xXZTXBts7tLtE5oLvJHXcklv5hMjTm/z+Elf6XREge9xyCURu809g8Bqg8b/F\nZjl8WE+mHQKBgEZd2PiWHRTpQFgCuo8cwqD2LfWQSeEt44m+KEgLDoND/mHeYUoC\n4/37otoAHDza2yYFx0acW9FMoYRmUM2sEotuOGnzDNlNdRHFhnxD2hBy4Lc/vfSl\nnlsmDzkCn+AGbiJqRrxqKpvU7nYgs9uJejefwDjE9T/8Zf82vrkWi+tRAoGAQd6D\ng+VcVUq7GplWjqvceBYuXC8XHp/CcIQJN2ilhCon+eSM5rYaiB0cgJTdrWjRE2o/\nmIoFRcAK8C//GXo++2dZI1/yQhRu5VFDEaTxsHcvEWJU2B0dcIN0ge/4A9XjJEPA\nCEDpjoolKKj7lkH7odA38DTrBu3Mo/TPnC4HpCkCgYEA0ANFyvQ2pjcEh9TFeUtc\nLxzcfNXjYWGWl9JmD7oj4wUBA3y/ywi6wb3FQMH9f/dJrc1ElFnR2DgYqUfcxuFB\no9sX7omJzpTME2k+C2aNlKyERCFta7WJs0UnAqaabaj6YAg6h6tIjfIhb2C33lOW\nUZWwKTNYQ5dL5mV5kzO3PrA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-izjpx@matka-jatka-fb.iam.gserviceaccount.com",
+  "client_id": "100072109459874755026",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-izjpx%40matka-jatka-fb.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

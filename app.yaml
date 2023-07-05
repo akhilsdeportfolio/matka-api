@@ -1,0 +1,15 @@
+runtime: nodejs18 # or another supported version
+
+env_variables:
+  DB_URL: "mongodb+srv://akhilvadla46:akki123@matka-cluster.qi8al97.mongodb.net/?retryWrites=true&w=majority"
+  RPAY_KEY: "rzp_test_WAL4lJiNcSdqGK"
+  SECRET: "L1EgzrKn3HwRAkeDDkpO16iB"
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
