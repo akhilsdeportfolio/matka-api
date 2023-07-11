@@ -23,7 +23,7 @@ router.get('/', async function(req, res, next) {
 });
 
 
-/* router.get('/createDrawData',async (req,res)=>{
+ router.get('/createDrawData',async (req,res)=>{
 
 
     await data.forEach(async (element) => {
@@ -35,7 +35,7 @@ router.get('/', async function(req, res, next) {
     res.send("Created Succesfully");
 
 
-}); */
+}); 
 
 
 

@@ -8,6 +8,7 @@ var cron = require('node-cron');
 const gamesController=require('./controllers/gamesController');
 const userController = require('./controllers/userController');
 const paymentController = require('./controllers/paymentsController');
+const betsController=require('./controllers/betsController');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/games', gamesController);
 app.use('/users', userController);
 app.use('/payments', paymentController);
+app.use('/bets', betsController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -861,11 +861,10 @@ const data = [
   },
 ];
 
-var mdata;
 
 let ans = [];
 
-for (let i = 0; i < 365 * 3.5; i++) {
+for (let i = 0; i < 365 * 2; i++) {
   console.log("Generating::::::::", i);
   const req = data.map((el) => {
     const ostart = el["open-draw-time"].split(":")[0];

@@ -34,4 +34,10 @@ router.post(
     } else res.status(400).send({ errors: result.array() });
   }
 );
+
+
+router.get('/:uid',async (req,res)=>{ 
+    const userData=await userModel.findOne({uid:{$eq:req.params.uid}}).exec();
+    res.json({userData});
+})
 module.exports = router;

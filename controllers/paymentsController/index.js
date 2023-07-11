@@ -7,6 +7,7 @@ const { body, header, validationResult } = require("express-validator");
 const firebase = require("../../firebase");
 const userModel = require("../../models/userModel");
 const { UserInfo } = require("paytm-pg-node-sdk");
+const moment = require("moment");
 
 dotenv.config();
 
@@ -22,11 +23,12 @@ router.post(
   body("amount").notEmpty().withMessage("please enter valid amount"),
   header("token").notEmpty().withMessage("enter a valid user token"),  
   async (req, res) => {
-    const result = validationResult(req);
+    const result = validationResult(req);    
     if (result.isEmpty()) {
       try {
         
         const verify=await firebase.auth().verifyIdToken(req.headers.token);  
+        console.log("Verify",verify);
         const userInfo= await userModel.findOne({uid:{$eq:verify.uid}}).exec();
         const order = await instance.orders.create({
           amount: req.body.amount,
@@ -48,12 +50,44 @@ router.post(
     }
   }
 );
+
+
+router.post("/createPaymentLink",async(req,res)=>{
+
+
+  try{
+  const link=await instance.qrCode.create({
+    type: "upi_qr",
+    name: "Store Front Display",
+    usage: "single_use",
+    fixed_amount: true,
+    payment_amount: req.body.amount,
+    description: "For Store 1", 
+    close_by: moment().add('1','d').unix(),
+    notes: {
+      purpose: "Test UPI QR Code notes"
+    }
+  });
+  res.json(link)
+
+}
+catch(e)
+{ 
+
+  res.json({error:e})
+
+}
+
+
+});
+
+
+
 router.post("/onSuccesfulTransaction/:tid/:uid", async (req, res) => {
   const transactionId = req.params.tid;
 
 
-  console.log(req.body);
-
+  
   const data = await transactionModel.findById(transactionId).exec();
   if (data.status === "closed") {
     res.status(400).json({
