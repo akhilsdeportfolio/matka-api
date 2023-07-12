@@ -9,6 +9,7 @@ const gamesController=require('./controllers/gamesController');
 const userController = require('./controllers/userController');
 const paymentController = require('./controllers/paymentsController');
 const betsController=require('./controllers/betsController');
+const transactionController = require('./controllers/transactionController');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use('/games', gamesController);
 app.use('/users', userController);
 app.use('/payments', paymentController);
 app.use('/bets', betsController);
+app.use('/transactions', transactionController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

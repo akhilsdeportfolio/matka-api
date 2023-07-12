@@ -4,7 +4,7 @@ const betSchema = new mongoose.Schema({
   userId: { type: String,required:true},
   lines: [{ type: Object ,required:true}],
   draws: [{ type: mongoose.Schema.Types.ObjectId, ref: "draws" ,required:false}],
-  drawId:{ type: String, ref: "draws" ,required:true},
+  drawId:{ type: mongoose.Schema.Types.ObjectId, ref: "draws" ,required:true},
   id: { type: mongoose.Types.ObjectId },  
   amount: { type: Number, required:false},
   transactionId: { type: mongoose.Schema.Types.ObjectId,ref:"transaction"},

@@ -16,8 +16,6 @@ var instance = new Razorpay({
   key_secret: process.env.SECRET,
 });
 
-
-
 router.post(
   "/init",
   body("amount").notEmpty().withMessage("please enter valid amount"),

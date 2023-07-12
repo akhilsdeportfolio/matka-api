@@ -20,6 +20,7 @@ router.post(
     .isArray()
     .withMessage("enter a valid email address"),
   body("drawId").notEmpty().withMessage("Enter a draw id"),
+  body("draws").isArray().withMessage("Enter array of ids"),
   async function (req, res, next) {
     const result = validationResult(req);
     if (result.isEmpty()) {
@@ -45,20 +46,17 @@ router.post(
             ...req.body,
             userId: userData.uid,
           });
-          const updatedBalance = userData.balance - amount;
-          console.log("before", userData.balance);
+          const updatedBalance = userData.balance - amount;          
           const result = await userModel.findByIdAndUpdate(
             userData._id,
             { balance: updatedBalance },
             { new: true }
-          );
-          console.log("after", result.balance);
+          );          
           res.status(200).json(result);
         } else {
           res.status(399).json({ message: "insufficient funds" });
         }
-      } catch (e) {
-        console.log("ERr", e);
+      } catch (e) {        
         res.status(400).send({ error: e });
       }
     } else res.status(400).send({ errors: result.array() });
@@ -77,7 +75,7 @@ router.get(
 
         const data = await betModel
           .find({ userId: { $eq: currentUser.uid } })
-          .sort({ createdAt: -1 })          
+          .sort({ createdAt: -1 }).populate('drawId')          
           .exec();
         res.status(200).json({ data });
       } catch (e) {
