@@ -7,7 +7,7 @@ const data = [
   {
     sno: 2,
     "start-time": "00:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0015AM",
     slot: "OPEN",
     "open-draw-time": "00:15",
@@ -16,7 +16,7 @@ const data = [
   {
     sno: 3,
     "start-time": "00:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0030AM",
     slot: "OPEN",
     "open-draw-time": "00:30",
@@ -34,7 +34,7 @@ const data = [
   {
     sno: 5,
     "start-time": "01:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0100AM",
     slot: "OPEN",
     "open-draw-time": "01:00",
@@ -43,7 +43,7 @@ const data = [
   {
     sno: 6,
     "start-time": "01:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0115AM",
     slot: "OPEN",
     "open-draw-time": "01:15",
@@ -52,7 +52,7 @@ const data = [
   {
     sno: 7,
     "start-time": "01:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0130AM",
     slot: "OPEN",
     "open-draw-time": "01:30",
@@ -79,7 +79,7 @@ const data = [
   {
     sno: 10,
     "start-time": "02:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0215AM",
     slot: "OPEN",
     "open-draw-time": "02:15",
@@ -88,7 +88,7 @@ const data = [
   {
     sno: 11,
     "start-time": "02:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0230AM",
     slot: "OPEN",
     "open-draw-time": "02:30",
@@ -106,7 +106,7 @@ const data = [
   {
     sno: 13,
     "start-time": "03:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0300AM",
     slot: "OPEN",
     "open-draw-time": "03:00",
@@ -115,7 +115,7 @@ const data = [
   {
     sno: 14,
     "start-time": "03:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0315AM",
     slot: "OPEN",
     "open-draw-time": "03:15",
@@ -124,7 +124,7 @@ const data = [
   {
     sno: 15,
     "start-time": "03:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0330AM",
     slot: "OPEN",
     "open-draw-time": "03:30",
@@ -151,7 +151,7 @@ const data = [
   {
     sno: 18,
     "start-time": "04:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0415AM",
     slot: "OPEN",
     "open-draw-time": "04:15",
@@ -160,7 +160,7 @@ const data = [
   {
     sno: 19,
     "start-time": "04:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0430AM",
     slot: "OPEN",
     "open-draw-time": "04:30",
@@ -178,7 +178,7 @@ const data = [
   {
     sno: 21,
     "start-time": "05:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0500AM",
     slot: "OPEN",
     "open-draw-time": "05:00",
@@ -187,7 +187,7 @@ const data = [
   {
     sno: 22,
     "start-time": "05:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0515AM",
     slot: "OPEN",
     "open-draw-time": "05:15",
@@ -196,7 +196,7 @@ const data = [
   {
     sno: 23,
     "start-time": "05:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0530AM",
     slot: "OPEN",
     "open-draw-time": "05:30",
@@ -223,7 +223,7 @@ const data = [
   {
     sno: 26,
     "start-time": "06:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0615AM",
     slot: "OPEN",
     "open-draw-time": "06:15",
@@ -232,7 +232,7 @@ const data = [
   {
     sno: 27,
     "start-time": "06:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0630AM",
     slot: "OPEN",
     "open-draw-time": "06:30",
@@ -250,7 +250,7 @@ const data = [
   {
     sno: 29,
     "start-time": "07:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0700AM",
     slot: "OPEN",
     "open-draw-time": "07:00",
@@ -259,7 +259,7 @@ const data = [
   {
     sno: 30,
     "start-time": "07:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0715AM",
     slot: "OPEN",
     "open-draw-time": "07:15",
@@ -268,7 +268,7 @@ const data = [
   {
     sno: 31,
     "start-time": "07:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0730AM",
     slot: "OPEN",
     "open-draw-time": "07:30",
@@ -295,7 +295,7 @@ const data = [
   {
     sno: 34,
     "start-time": "08:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0815AM",
     slot: "OPEN",
     "open-draw-time": "08:15",
@@ -304,7 +304,7 @@ const data = [
   {
     sno: 35,
     "start-time": "08:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0830AM",
     slot: "OPEN",
     "open-draw-time": "08:30",
@@ -322,7 +322,7 @@ const data = [
   {
     sno: 37,
     "start-time": "09:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT900AM",
     slot: "OPEN",
     "open-draw-time": "09:00",
@@ -331,7 +331,7 @@ const data = [
   {
     sno: 38,
     "start-time": "09:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT915AM",
     slot: "OPEN",
     "open-draw-time": "09:15",
@@ -340,7 +340,7 @@ const data = [
   {
     sno: 39,
     "start-time": "09:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM930AM",
     slot: "OPEN",
     "open-draw-time": "09:30",
@@ -367,7 +367,7 @@ const data = [
   {
     sno: 42,
     "start-time": "10:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN1015AM",
     slot: "OPEN",
     "open-draw-time": "10:15",
@@ -376,7 +376,7 @@ const data = [
   {
     sno: 43,
     "start-time": "10:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB1030AM",
     slot: "OPEN",
     "open-draw-time": "10:30",
@@ -394,7 +394,7 @@ const data = [
   {
     sno: 45,
     "start-time": "11:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT1100AM",
     slot: "OPEN",
     "open-draw-time": "11:00",
@@ -403,7 +403,7 @@ const data = [
   {
     sno: 46,
     "start-time": "11:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT1115AM",
     slot: "OPEN",
     "open-draw-time": "11:15",
@@ -412,7 +412,7 @@ const data = [
   {
     sno: 47,
     "start-time": "11:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM1130AM",
     slot: "OPEN",
     "open-draw-time": "11:30",
@@ -439,7 +439,7 @@ const data = [
   {
     sno: 50,
     "start-time": "12:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN1215PM",
     slot: "OPEN",
     "open-draw-time": "12:15",
@@ -448,7 +448,7 @@ const data = [
   {
     sno: 51,
     "start-time": "12:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB1230PM",
     slot: "OPEN",
     "open-draw-time": "12:30",
@@ -466,7 +466,7 @@ const data = [
   {
     sno: 53,
     "start-time": "13:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0100PM",
     slot: "OPEN",
     "open-draw-time": "13:00",
@@ -475,7 +475,7 @@ const data = [
   {
     sno: 54,
     "start-time": "13:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0115PM",
     slot: "OPEN",
     "open-draw-time": "13:15",
@@ -484,7 +484,7 @@ const data = [
   {
     sno: 55,
     "start-time": "13:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0130PM",
     slot: "OPEN",
     "open-draw-time": "13:30",
@@ -511,7 +511,7 @@ const data = [
   {
     sno: 58,
     "start-time": "14:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0215PM",
     slot: "OPEN",
     "open-draw-time": "14:15",
@@ -520,7 +520,7 @@ const data = [
   {
     sno: 59,
     "start-time": "14:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0230PM",
     slot: "OPEN",
     "open-draw-time": "14:30",
@@ -538,7 +538,7 @@ const data = [
   {
     sno: 61,
     "start-time": "15:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0300PM",
     slot: "OPEN",
     "open-draw-time": "15:00",
@@ -547,7 +547,7 @@ const data = [
   {
     sno: 62,
     "start-time": "15:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0315PM",
     slot: "OPEN",
     "open-draw-time": "15:15",
@@ -556,7 +556,7 @@ const data = [
   {
     sno: 63,
     "start-time": "15:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0330PM",
     slot: "OPEN",
     "open-draw-time": "15:30",
@@ -583,7 +583,7 @@ const data = [
   {
     sno: 66,
     "start-time": "16:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0415PM",
     slot: "OPEN",
     "open-draw-time": "16:15",
@@ -592,7 +592,7 @@ const data = [
   {
     sno: 67,
     "start-time": "16:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0430PM",
     slot: "OPEN",
     "open-draw-time": "16:30",
@@ -610,7 +610,7 @@ const data = [
   {
     sno: 69,
     "start-time": "17:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0500PM",
     slot: "OPEN",
     "open-draw-time": "17:00",
@@ -619,7 +619,7 @@ const data = [
   {
     sno: 70,
     "start-time": "17:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0515PM",
     slot: "OPEN",
     "open-draw-time": "17:15",
@@ -628,7 +628,7 @@ const data = [
   {
     sno: 71,
     "start-time": "17:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0530PM",
     slot: "OPEN",
     "open-draw-time": "17:30",
@@ -655,7 +655,7 @@ const data = [
   {
     sno: 74,
     "start-time": "18:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0615PM",
     slot: "OPEN",
     "open-draw-time": "18:15",
@@ -664,7 +664,7 @@ const data = [
   {
     sno: 75,
     "start-time": "18:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0630PM",
     slot: "OPEN",
     "open-draw-time": "18:30",
@@ -682,7 +682,7 @@ const data = [
   {
     sno: 77,
     "start-time": "19:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0700PM",
     slot: "OPEN",
     "open-draw-time": "19:00",
@@ -691,7 +691,7 @@ const data = [
   {
     sno: 78,
     "start-time": "19:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0715PM",
     slot: "OPEN",
     "open-draw-time": "19:15",
@@ -700,7 +700,7 @@ const data = [
   {
     sno: 79,
     "start-time": "19:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0730PM",
     slot: "OPEN",
     "open-draw-time": "19:30",
@@ -727,7 +727,7 @@ const data = [
   {
     sno: 82,
     "start-time": "20:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN0815PM",
     slot: "OPEN",
     "open-draw-time": "20:15",
@@ -736,7 +736,7 @@ const data = [
   {
     sno: 83,
     "start-time": "20:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB0830PM",
     slot: "OPEN",
     "open-draw-time": "20:30",
@@ -754,7 +754,7 @@ const data = [
   {
     sno: 85,
     "start-time": "21:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT0900PM",
     slot: "OPEN",
     "open-draw-time": "21:00",
@@ -763,7 +763,7 @@ const data = [
   {
     sno: 86,
     "start-time": "21:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT0915PM",
     slot: "OPEN",
     "open-draw-time": "21:15",
@@ -772,7 +772,7 @@ const data = [
   {
     sno: 87,
     "start-time": "21:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM0930PM",
     slot: "OPEN",
     "open-draw-time": "21:30",
@@ -799,7 +799,7 @@ const data = [
   {
     sno: 90,
     "start-time": "22:15",
-    "product-name": "Matka Pune",
+    "product-name": "Matka Sridevi",
     "product-id": "MPUN1015PM",
     slot: ["OPEN"],
     "open-draw-time": "22:15",
@@ -808,7 +808,7 @@ const data = [
   {
     sno: 91,
     "start-time": "22:30",
-    "product-name": "Matka Mumbai",
+    "product-name": "Matka Milan",
     "product-id": "MMUB1030PM",
     slot: "OPEN",
     "open-draw-time": "22:30",
@@ -826,7 +826,7 @@ const data = [
   {
     sno: 93,
     "start-time": "23:00",
-    "product-name": "Matka Satra",
+    "product-name": "Matka Super Star",
     "product-id": "MSAT1100PM",
     slot: "OPEN",
     "open-draw-time": "23:00",
@@ -835,7 +835,7 @@ const data = [
   {
     sno: 94,
     "start-time": "23:15",
-    "product-name": "Matka Ratan",
+    "product-name": "Matka Rajadhani",
     "product-id": "MRAT1115PM",
     slot: "OPEN",
     "open-draw-time": "23:15",
@@ -844,7 +844,7 @@ const data = [
   {
     sno: 95,
     "start-time": "23:30",
-    "product-name": "Matka Bombay",
+    "product-name": "Matka Karnataka",
     "product-id": "MBOM1130PM",
     slot: "OPEN",
     "open-draw-time": "23:30",
@@ -857,7 +857,7 @@ const data = [
     "product-id": "MBAZ1145PM",
     slot: "OPEN",
     "open-draw-time": "23:45",
-    "close-draw-time": "00:00",
+    "close-draw-time": "23:59",
   },
 ];
 
