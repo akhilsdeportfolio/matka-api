@@ -46,17 +46,17 @@ router.post(
             ...req.body,
             userId: userData.uid,
           });
-          const updatedBalance = userData.balance - amount;          
+          const updatedBalance = userData.balance - amount;
           const result = await userModel.findByIdAndUpdate(
             userData._id,
             { balance: updatedBalance },
             { new: true }
-          );          
+          );
           res.status(200).json(result);
         } else {
           res.status(399).json({ message: "insufficient funds" });
         }
-      } catch (e) {        
+      } catch (e) {
         res.status(400).send({ error: e });
       }
     } else res.status(400).send({ errors: result.array() });
@@ -72,14 +72,13 @@ router.get(
         const currentUser = await firebase
           .auth()
           .verifyIdToken(req.headers.token);
-
         const data = await betModel
           .find({ userId: { $eq: currentUser.uid } })
-          .sort({ createdAt: -1 }).populate('drawId')          
+          .sort({ createdAt: -1 })
+          .populate("drawId")
           .exec();
         res.status(200).json({ data });
       } catch (e) {
-        console.log("ERr", e);
         res.status(400).send({ error: e });
       }
     } else res.status(400).send({ errors: result.array() });
@@ -154,8 +153,8 @@ router.get("/all", async function (req, res, next) {
         ankArr[el] = current;
       });
 
-      const jodiMap=getMap(array);
-      const ankMap=getMap(ankArr);
+      const jodiMap = getMap(array);
+      const ankMap = getMap(ankArr);
 
       res.status(200).json({
         ankMap,
@@ -164,7 +163,7 @@ router.get("/all", async function (req, res, next) {
         doublePannaBets,
         triplePannaBets,
         halfSangam,
-        fullSangamBets, 
+        fullSangamBets,
       });
     } catch (e) {
       console.log("ERr", e);
@@ -180,4 +179,5 @@ function getMap(array) {
   });
   return map;
 }
+
 module.exports = router;
