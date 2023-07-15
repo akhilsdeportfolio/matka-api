@@ -10,6 +10,17 @@ dotenv.config();
 
 /* GET users listing. */
 
+router.post("/signup",async function(req,res){
+  try{
+    const user=await userModel.create({...req.body.data});
+    res.status(200).json({status:true});
+  }
+  catch(e)
+  {
+    res.status(500).json({error:e});
+  }
+});
+
 router.post(
   "/addPhone",
   header("token").notEmpty().withMessage("enter a token"),
@@ -41,7 +52,7 @@ router.post(
     } else res.status(400).send({ errors: result.array() });
   }
 );
-router.get('/users/:uid',async (req,res)=>{ 
+router.get('/:uid',async (req,res)=>{ 
     const userData=await userModel.findOne({uid:{$eq:req.params.uid}}).exec();
     res.json({userData});
 })

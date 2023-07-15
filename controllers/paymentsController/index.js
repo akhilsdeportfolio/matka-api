@@ -19,25 +19,26 @@ var instance = new Razorpay({
 router.post(
   "/init",
   body("amount").notEmpty().withMessage("please enter valid amount"),
-  header("token").notEmpty().withMessage("enter a valid user token"),  
+  header("token").notEmpty().withMessage("enter a valid user token"),
   async (req, res) => {
-    const result = validationResult(req);    
+    const result = validationResult(req);
     if (result.isEmpty()) {
       try {
-        
-        const verify=await firebase.auth().verifyIdToken(req.headers.token);  
-        console.log("Verify",verify);
-        const userInfo= await userModel.findOne({uid:{$eq:verify.uid}}).exec();
+        const verify = await firebase.auth().verifyIdToken(req.headers.token);
+        console.log("Verify", verify);
+        const userInfo = await userModel
+          .findOne({ uid: { $eq: verify.uid } })
+          .exec();
         const order = await instance.orders.create({
           amount: req.body.amount,
           currency: "INR",
         });
-        var data = await transactionModel.create({         
-          userData:userInfo._id, 
+        var data = await transactionModel.create({
+          userData: userInfo._id,
           paymentInfo: order,
           amount: req.body.amount,
-          uid:userInfo.uid
-        });        
+          uid: userInfo.uid,
+        });
         res.json({ data });
       } catch (e) {
         console.error(e);
@@ -49,77 +50,67 @@ router.post(
   }
 );
 
-
-router.post("/createPaymentLink",async(req,res)=>{
-
-
-  try{
-  const link=await instance.qrCode.create({
-    type: "upi_qr",
-    name: "Store Front Display",
-    usage: "single_use",
-    fixed_amount: true,
-    payment_amount: req.body.amount,
-    description: "For Store 1", 
-    close_by: moment().add('1','d').unix(),
-    notes: {
-      purpose: "Test UPI QR Code notes"
-    }
-  });
-  res.json(link)
-
-}
-catch(e)
-{ 
-
-  res.json({error:e})
-
-}
-
-
+router.post("/createPaymentLink", async (req, res) => {
+  try {
+    const link = await instance.qrCode.create({
+      type: "upi_qr",
+      name: "Store Front Display",
+      usage: "single_use",
+      fixed_amount: true,
+      payment_amount: req.body.amount,
+      description: "For Store 1",
+      close_by: moment().add("1", "d").unix(),
+      notes: {
+        purpose: "Test UPI QR Code notes",
+      },
+    });
+    res.json(link);
+  } catch (e) {
+    res.json({ error: e });
+  }
 });
-
-
 
 router.post("/onSuccesfulTransaction/:tid/:uid", async (req, res) => {
   const transactionId = req.params.tid;
 
-
-  
   const data = await transactionModel.findById(transactionId).exec();
-  if (data.status === "closed") {
+  if (data.status === "success") {
     res.status(400).json({
       error: "Invalid request",
       status:
         "payment already processed with the same order id create a new order",
     });
-  }
-  else
-  {
-    const updated = await transactionModel.findByIdAndUpdate(transactionId, {
-        status: "closed",
-        paymentInfo: {
+  } else {
+    try {
+      const updated = await transactionModel.findByIdAndUpdate(
+        transactionId,
+        {
           status: "success",
           paymentId: req.body.razorpay_payment_id || null,
           orderId: req.body.razorpay_order_id || null,
           signature: req.body.razorpay_signature || null,
+          transactionDateTime: new Date(),
         },
-      },{new:true});
-      const userData = await userModel.findOne({uid:{$eq:req.params.uid}});
+        { new: true }
+      );
+      const userData = await userModel.findOne({
+        uid: { $eq: req.params.uid },
+      });
       const transactionData = await transactionModel.findByIdAndUpdate(
         transactionId,
-        { isCompleted: true },{new:true}
+        { isCompleted: true },
+        { new: true }
       );
 
       const updatedUserData = await userModel.findByIdAndUpdate(
         userData._id,
         { balance: userData.balance + transactionData.amount },
-        {new:true}
+        { new: true }
       );
-      res.json({ updated, updatedUserData, transactionData });
-
+      res.status(200).json({ newBalance:updatedUserData.balance});
+    } catch (e) {
+      res.status(500).json({ error: e });
+    }
   }
-
-  
 });
 module.exports = router;

@@ -9,6 +9,10 @@ const transactionSchema = new mongoose.Schema({
         meta:{type:Object},
         userData:{type:mongoose.Schema.Types.ObjectId,ref:'users'},
         paymentInfo:{type:Object},
+        paymentId:{type:String},
+        orderId:{type:String},
+        signature:{type:String},
+        transactionDateTime:{type:Date},        
         isCompleted:{type:Boolean,default:false}
 },{timestamps:true})
 
