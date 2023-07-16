@@ -92,7 +92,7 @@ router.post("/onSuccesfulTransaction/:tid/:uid", async (req, res) => {
           transactionDateTime: new Date(),
         },
         { new: true }
-      );
+      );      
       const userData = await userModel.findOne({
         uid: { $eq: req.params.uid },
       });
@@ -101,7 +101,6 @@ router.post("/onSuccesfulTransaction/:tid/:uid", async (req, res) => {
         { isCompleted: true },
         { new: true }
       );
-
       const updatedUserData = await userModel.findByIdAndUpdate(
         userData._id,
         { balance: userData.balance + transactionData.amount },

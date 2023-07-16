@@ -4,3 +4,4 @@ env_variables:
   DB_URL: "mongodb+srv://akhilvadla46:akki123@matka-cluster.qi8al97.mongodb.net/?retryWrites=true&w=majority"
   RPAY_KEY: "rzp_test_1u8VkTvNx7llcV"
   SECRET: "OB171Ef0JrvBz3JLclnSh2eO"
+  CUSTOM: "AKHILKAMSALA"
