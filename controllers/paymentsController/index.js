@@ -24,22 +24,21 @@ router.post(
     const result = validationResult(req);
     if (result.isEmpty()) {
       try {
-        const verify = await firebase.auth().verifyIdToken(req.headers.token);
-        console.log("Verify", verify);
+        const verify = await firebase.auth().verifyIdToken(req.headers.token);        
         const userInfo = await userModel
           .findOne({ uid: { $eq: verify.uid } })
           .exec();
         const order = await instance.orders.create({
           amount: req.body.amount,
           currency: "INR",
-        });
+        });        
         var data = await transactionModel.create({
           userData: userInfo._id,
           paymentInfo: order,
           amount: req.body.amount,
           uid: userInfo.uid,
         });
-        res.json({ data });
+        res.status(200).json({ data });
       } catch (e) {
         console.error(e);
         res.status(500).send(e);
@@ -64,7 +63,7 @@ router.post("/createPaymentLink", async (req, res) => {
         purpose: "Test UPI QR Code notes",
       },
     });
-    res.json(link);
+    res.status(200).json(link);
   } catch (e) {
     res.json({ error: e });
   }
