@@ -13,7 +13,7 @@ router.get("/", async function (req, res, next) {
   for (let i = 1; i <= days; i++) {
     playDays.push(moment().add(i, "d").format("DD-MM-YYYY"));
   }
-  const data = await drawModel.find({ date: { $in: playDays } }).exec();
+  const data = await drawModel.find({ date: { $in: playDays } }).sort({ openDrawTime: 1 }).exec();
   const playable = data.filter((el) => {
     const timeToExpire = moment().diff(moment.unix(el.openDrawTime));
     return timeToExpire < 0;

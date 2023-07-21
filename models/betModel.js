@@ -12,7 +12,7 @@ const betSchema = new mongoose.Schema({
   price: { type: mongoose.Types.Decimal128 },
   drawType: [{ type: String }],
   winnings: { type: Number, deafult: 0 },
-  winningsDivison: [{ type: mongoose.Schema.Types.ObjectId, ref: "winnings" }],  
+  winningsDivison: [{ type: mongoose.Schema.Types.Object}],  
   shortId: { type: String, ref: "draws" },
   winningsTransactionId:{type:mongoose.Schema.Types.ObjectId,ref:"transaction"},
   winningsTransfered:{type:Boolean,default:false}

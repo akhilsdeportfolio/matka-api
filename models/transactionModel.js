@@ -13,7 +13,10 @@ const transactionSchema = new mongoose.Schema({
         orderId:{type:String},
         signature:{type:String},
         transactionDateTime:{type:Date},        
-        isCompleted:{type:Boolean,default:false}
+        isCompleted:{type:Boolean,default:false},
+        phonePe:{type:Object},
+        bankDetails:{type:Object}
+
 },{timestamps:true})
 
 module.exports = mongoose.model("transaction",transactionSchema);
