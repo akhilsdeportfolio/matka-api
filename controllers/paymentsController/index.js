@@ -26,7 +26,7 @@ router.post("/all", header("token").notEmpty().withMessage("Please enter a token
   const result = validationResult(req);
   if (result.isEmpty()) {
     const userData = await firebase.auth().verifyIdToken(req.headers.token);
-    const result = await transactionModel.find({uid:userData.uid}).sort({ createdAt: -1 }).lean().exec()
+    const result = await transactionModel.find({ uid: userData.uid }).sort({ createdAt: -1 }).lean().exec()
     res.status(200).json({ data: result })
   }
   else {
@@ -37,10 +37,26 @@ router.post("/withdraw", header("token").notEmpty().withMessage("Please enter a 
   const result = validationResult(req);
   if (result.isEmpty()) {
     const userData = await firebase.auth().verifyIdToken(req.headers.token);
-    const result = await transactionModel.create({ uid:userData.uid,bankDetails: req.body,amount:(req.body.amount*100),type: 'withdraw' });
+    const result = await transactionModel.create({ uid: userData.uid, bankDetails: req.body, amount: (req.body.amount * 100), type: 'withdraw' });
     const prevUserData = await userModel.findOne({ uid: userData.uid });
-    const newUserData = await userModel.findOneAndUpdate({ uid: userData.uid, balance: prevUserData.balance - (Number(req.body.amount) * 100) });
-    res.status(200).json(newUserData);
+
+
+    if (prevUserData.balance <= 0) {
+      res.status(399).json({ error: 'insufficient funds' });
+      return;
+    }
+
+
+    if (prevUserData.balance < (req.body.amount * 100)) {
+      res.status(399).json({ error: 'insufficient funds' });
+      return;
+    }
+    else {
+      const newUserData = await userModel.findOneAndUpdate({ uid: userData.uid, balance: prevUserData.balance - (Number(req.body.amount) * 100) });
+      res.status(200).json(newUserData);
+      return;
+    }
+
   }
   else {
     res.status(400).json(result.array());
