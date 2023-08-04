@@ -11,11 +11,13 @@ dotenv.config();
 /* GET users listing. */
 
 router.post("/signup", async function (req, res) {
-  try {
+  console.log("Request BODY",JSON.stringify(req.body.data));
+  try {    
     const user = await userModel.create({ ...req.body.data });
     res.status(200).json({ status: true });
   } catch (e) {
-    res.status(500).json({ error: e });
+    console.error("error",e);
+    res.status(500).json({ error: JSON.stringify(e) });
   }
 });
 
