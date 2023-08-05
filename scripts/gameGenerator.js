@@ -105,12 +105,12 @@ const data = [
   },
   {
     "sno": 13,
-    "start-time": "21:35",
+    "start-time": "09:35",
     "product-name": "Main Bazar",
     "product-id": "MAINBAZ",
     "slot": "open",
-    "open-draw-time": "21:35",
-    "close-draw-time": "23:55"
+    "open-draw-time": "09:35",
+    "close-draw-time": "11:55"
   },
   {
     "sno": 14,
@@ -214,8 +214,8 @@ for (let i = 0; i < 365 * 2; i++) {
       slot: ["OPEN", "CLOSE"],
       openDrawStatus: timeToExpire < 0 ? "TO_BE_DRAWN" : "DRAW_IN_PROGESS",
       closeDrawStatus: timeToClose < 0 ? "TO_BE_DRAWN" : "DRAW_IN_PROGESS",
-      createdAt: moment().unix(),
-      updatedAt: moment().unix(),
+      createdAt: moment(new Date()).unix(),
+      updatedAt: moment(new Date()).unix(),
       createdBy: "SYSTEM",
     };
   });
