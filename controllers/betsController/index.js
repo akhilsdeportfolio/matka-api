@@ -3,7 +3,6 @@ var router = express.Router();
 const userModel = require("../../models/userModel");
 const betModel = require("../../models/betModel");
 const dotenv = require("dotenv");
-const shortId = require("short-uuid");
 const { body, validationResult, header } = require("express-validator");
 const firebase = require("../../firebase.js");
 const { default: mongoose } = require("mongoose");
