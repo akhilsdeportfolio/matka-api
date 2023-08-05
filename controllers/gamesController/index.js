@@ -4,13 +4,13 @@ const moment = require("moment");
 const data = require("../../finalData.json");
 const drawModel = require("../../models/drawModel");
 const betsModel = require("../../models/betModel");
-const userModel= require("../../models/userModel");
+const userModel = require("../../models/userModel");
 const { header, body, validationResult } = require("express-validator");
 const firebase = require("../../firebase");
 
 
-function getAmount(lines) {  
-  return lines.reduce((ac, el) => ac + Number(el.stake), 0)*100;
+function getAmount(lines) {
+  return lines.reduce((ac, el) => ac + Number(el.stake), 0) * 100;
 }
 
 /* GET users listing. */
@@ -20,10 +20,12 @@ router.get("/", async function (req, res, next) {
   for (let i = 1; i <= days; i++) {
     playDays.push(moment().add(i, "d").format("DD-MM-YYYY"));
   }
+
   const data = await drawModel.find({ date: { $in: playDays } }).sort({ openDrawTime: 1 }).exec();
   const playable = data.filter((el) => {
     const timeToExpire = moment().diff(moment.unix(el.openDrawTime));
-    return timeToExpire < 0;
+    const closetimeExpire = moment().diff(moment.unix(el.closeDrawTime));
+    return timeToExpire < 0 || closetimeExpire < 0;
   });
   res.status(200).json({
     status: true,
@@ -62,154 +64,133 @@ router.get("/getWinners/:id", async function (req, res) {
 
   // get all ank bets 
 
-  data.forEach(async (bet)=>{
-      // get lines of each bet
-      const lines=bet.lines;
-      const winnings=[];
-    
-      lines.forEach((line)=>{
+  data.forEach(async (bet) => {
+    // get lines of each bet
+    const lines = bet.lines;
+    const winnings = [];
 
-          switch(line.name)
-          {
-            case "ank":
-              const userSelected=Number(line.ank.reduce((ac,el)=>ac+el));
-              if(line.drawType==="open" && gamesResultData.openAnk===userSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*9};
-                  winnings.push(winningLine);
-              }              
-              else if(line.drawType==="close" && gamesResultData.closeAnk===userSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*9};
-                  winnings.push(winningLine);
-              }     
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }
-              
-            break;
-            case "jodi":
-              const sJodi=Number(line.jodi.reduce((ac,el)=>ac+el));
-              
-              if(gamesResultData.jodi===sJodi)
-              {               
-                  const winningLine = {...line,stake:line.stake*95};
-                  winnings.push(winningLine);
-              }                            
-              else
-              {
-                const winningLine = {...line,stake:0};                
-                winnings.push(winningLine);
-              }              
-            break;
-            case "single-panna":
-              const singlPannaSelected=Number(line.numbers.reduce((ac,el)=>ac+el));
-              if(line.drawType==="open" && gamesResultData.open===singlPannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*150};
-                  winnings.push(winningLine);
-              }              
-              else if(line.drawType==="close" && gamesResultData.close===singlPannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*150};
-                  winnings.push(winningLine);
-              }     
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }
-              
-            break;
-            case "double-panna":
-              const doublePannaSelected=Number(line.numbers.reduce((ac,el)=>ac+el));
-              if(line.drawType==="open" && gamesResultData.open===doublePannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*300};
-                  winnings.push(winningLine);
-              }              
-              else if(line.drawType==="close" && gamesResultData.close===doublePannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*300};
-                  winnings.push(winningLine);
-              }     
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }              
-            break;
-            case "triple-panna":
-              const triplePannaSelected=Number(line.numbers.reduce((ac,el)=>ac+el));
-              if(line.drawType==="open" && gamesResultData.open===triplePannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*600};
-                  winnings.push(winningLine);
-              }              
-              else if(line.drawType==="close" && gamesResultData.close===triplePannaSelected)
-              { 
-                  const winningLine = {...line,stake:line.stake*600};
-                  winnings.push(winningLine);
-              }     
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }              
-            break;
-            case "half-sangam":
-              const panna=Number(line.numbers.reduce((ac,el)=>ac+el));
-              const number=Number(line.ank.reduce((ac,el)=>ac+el));
-              
-              if(line.drawType==="open" && Math.ceil(gamesResultData.halfSanagamOpen/10)===panna && (gamesResultData.halfSanagamOpen%10)===number)
-              { 
-                  const winningLine = {...line,stake:line.stake*5000};
-                  winnings.push(winningLine);
-              }              
-              else if(line.drawType==="close" && Math.ceil(gamesResultData.halfSangamClose/10)===panna && (gamesResultData.halfSangamClose%10)===number)
-              { 
-                  const winningLine = {...line,stake:line.stake*5000};
-                  winnings.push(winningLine);
-              }     
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }              
-            break;
-            case "full-sangam":
-              const full=Number(line.openNumbers.reduce((ac,el)=>ac+el)+""+line.closeNumbers.reduce((ac,el)=>ac+el));
-              if(gamesResultData.fullsangam===full)
-              { 
-                  const winningLine = {...line,stake:line.stake*10000};
-                  winnings.push(winningLine);
-              }                               
-              else
-              {
-                const winningLine = {...line,stake:0};
-                winnings.push(winningLine);
-              }              
-            break;
-            default:
-            break;
+    lines.forEach((line) => {
+
+      switch (line.name) {
+        case "ank":
+          const userSelected = Number(line.ank.reduce((ac, el) => ac + el));
+          if (line.drawType === "open" && gamesResultData.openAnk === userSelected) {
+            const winningLine = { ...line, stake: line.stake * 9 };
+            winnings.push(winningLine);
           }
-      })      
-      const updated=await betsModel.findOneAndUpdate({_id:{$eq:bet._id}},{winningsDivison:winnings,status:'Close'},{new:true}).lean().exec();  
-      if(!updated.winningsTransfered)
-       { 
-        const userData=await userModel.findOne({uid:bet.userId}).lean().exec();
-        await userModel.findOneAndUpdate({uid:bet.userId,balance:userData.balance+getAmount(winnings)}).lean().exec();
-        console.log("Transfered");
-        await  betsModel.findOneAndUpdate({_id:{$eq:bet._id}},{winningsTransfered:true,status:'Close'}).lean().exec();  
-        console.log("Updated in DB");
+          else if (line.drawType === "close" && gamesResultData.closeAnk === userSelected) {
+            const winningLine = { ...line, stake: line.stake * 9 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+
+          break;
+        case "jodi":
+          const sJodi = Number(line.jodi.reduce((ac, el) => ac + el));
+
+          if (gamesResultData.jodi === sJodi) {
+            const winningLine = { ...line, stake: line.stake * 95 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+          break;
+        case "single-panna":
+          const singlPannaSelected = Number(line.numbers.reduce((ac, el) => ac + el));
+          if (line.drawType === "open" && gamesResultData.open === singlPannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 150 };
+            winnings.push(winningLine);
+          }
+          else if (line.drawType === "close" && gamesResultData.close === singlPannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 150 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+
+          break;
+        case "double-panna":
+          const doublePannaSelected = Number(line.numbers.reduce((ac, el) => ac + el));
+          if (line.drawType === "open" && gamesResultData.open === doublePannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 300 };
+            winnings.push(winningLine);
+          }
+          else if (line.drawType === "close" && gamesResultData.close === doublePannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 300 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+          break;
+        case "triple-panna":
+          const triplePannaSelected = Number(line.numbers.reduce((ac, el) => ac + el));
+          if (line.drawType === "open" && gamesResultData.open === triplePannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 600 };
+            winnings.push(winningLine);
+          }
+          else if (line.drawType === "close" && gamesResultData.close === triplePannaSelected) {
+            const winningLine = { ...line, stake: line.stake * 600 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+          break;
+        case "half-sangam":
+          const panna = Number(line.numbers.reduce((ac, el) => ac + el));
+          const number = Number(line.ank.reduce((ac, el) => ac + el));
+
+          if (line.drawType === "open" && Math.ceil(gamesResultData.halfSanagamOpen / 10) === panna && (gamesResultData.halfSanagamOpen % 10) === number) {
+            const winningLine = { ...line, stake: line.stake * 5000 };
+            winnings.push(winningLine);
+          }
+          else if (line.drawType === "close" && Math.ceil(gamesResultData.halfSangamClose / 10) === panna && (gamesResultData.halfSangamClose % 10) === number) {
+            const winningLine = { ...line, stake: line.stake * 5000 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+          break;
+        case "full-sangam":
+          const full = Number(line.openNumbers.reduce((ac, el) => ac + el) + "" + line.closeNumbers.reduce((ac, el) => ac + el));
+          if (gamesResultData.fullsangam === full) {
+            const winningLine = { ...line, stake: line.stake * 10000 };
+            winnings.push(winningLine);
+          }
+          else {
+            const winningLine = { ...line, stake: 0 };
+            winnings.push(winningLine);
+          }
+          break;
+        default:
+          break;
       }
+    })
+    const updated = await betsModel.findOneAndUpdate({ _id: { $eq: bet._id } }, { winningsDivison: winnings, status: 'Close' }, { new: true }).lean().exec();
+    if (!updated.winningsTransfered) {
+      const userData = await userModel.findOne({ uid: bet.userId }).lean().exec();
+      await userModel.findOneAndUpdate({ uid: bet.userId, balance: userData.balance + getAmount(winnings) }).lean().exec();
+      console.log("Transfered");
+      await betsModel.findOneAndUpdate({ _id: { $eq: bet._id } }, { winningsTransfered: true, status: 'Close' }).lean().exec();
+      console.log("Updated in DB");
+    }
   });
 
 
-  
-  res.json({gamesResultData})
+
+  res.json({ gamesResultData })
 });
 
 
