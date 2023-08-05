@@ -28,8 +28,7 @@ router.get("/", async function (req, res, next) {
 
 router.post(
   "/getGameResults",
-  header("token").notEmpty().withMessage("token is required"),
-  body("game").notEmpty().withMessage("Game name is required"),
+  header("token").notEmpty().withMessage("token is required"),  
   body("date").notEmpty().withMessage("Date is required"),
   async function (req, res) {
     const result = await validationResult(req);
@@ -39,8 +38,7 @@ router.post(
         const verify = await firebase.auth().verifyIdToken(req.headers.token);
         const data = await drawModel
           .find({
-            date: { $eq: req.body.date },
-            productName: { $eq: req.body.game },
+            date: { $eq: req.body.date },            
           })
           .exec();
         res.status(200).json({ games: data });
