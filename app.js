@@ -12,26 +12,6 @@ const betsController=require('./controllers/betsController');
 const transactionController = require('./controllers/transactionController');
 
 var app = express();
-
-
-/* cron.schedule('30 * * * * *', async () => {
-  console.log("Running Cron :::::::::::")
-  const data=await drawModel.find({date:{$eq:moment().format("DD-MM-YYYY")}}).exec();  
-  const completedGames=data.filter((draw)=>{
-    const diff=moment().diff(moment.unix(draw.openDrawTime))  
-    return (diff > 0 && draw.status!=='CLOSED');
-  });
-  completedGames.forEach(async (draw)=>{
-    await drawModel.findByIdAndUpdate(draw.id,{status:"CLOSED",openNumbers:[Math.round(Math.random()*9),Math.round(Math.random()*9),Math.round(Math.random()*9)],openNumbers:[Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]}).exec();
-  })
-
-});
-
- */
-
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
