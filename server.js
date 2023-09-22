@@ -9,6 +9,8 @@ let coeff = 1;
 let slowid;
 app.listen(process.env.PORT || 2000, async function () {
     await connect();
+
+    console.log("Listening on port ",process.env.PORT);
     gameChannel.subscribe('end', () => {
         console.log("Game Ended", coeff);
         coeff = 1
@@ -27,7 +29,7 @@ app.listen(process.env.PORT || 2000, async function () {
 
     })
 
-    start();
+    //start();
 
 });
 
