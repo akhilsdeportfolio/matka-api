@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 const dotenv = require("dotenv");
-const Razorpay = require("razorpay");
 const transactionModel = require("../../models/transactionModel");
 const { body, header, validationResult } = require("express-validator");
 const firebase = require("../../firebase");
@@ -14,10 +13,7 @@ const { decode } = require("jsonwebtoken");
 
 dotenv.config();
 
-var instance = new Razorpay({
-  key_id: process.env.RPAY_KEY,
-  key_secret: process.env.SECRET,
-});
+
 
 const saltKey = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
 const phonePemerchantId = "PGTESTPAYUAT";
