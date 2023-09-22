@@ -18,7 +18,7 @@ app.listen(process.env.PORT || 2000, async function () {
         
         setTimeout(() => {
             gameChannel.publish('bets_closed', { roundId: newRound }).then(() => {                
-                start();
+                //start();
             }).catch((e) => {
                 console.log("Error", e);
             })
@@ -32,7 +32,7 @@ app.listen(process.env.PORT || 2000, async function () {
 });
 
 
-function start() {
+/* function start() {
     coeff = 1;
     gameChannel.publish("reset", { unix: moment().unix() });
     gameChannel.publish("start", { unix: moment().unix() })
@@ -86,7 +86,4 @@ function start() {
             gameChannel.publish("game", { coeff: Number(coeff.toFixed(2)) });
         }
     }, 200);
-
-
-
-}
+} */
