@@ -20,7 +20,7 @@
     "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
     "https": "^1.0.0",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "^9.0.2",
     "moment": "^2.29.4",
     "mongoose": "^7.5.0",
     "morgan": "~1.9.1",
